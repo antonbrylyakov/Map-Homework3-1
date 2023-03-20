@@ -23,6 +23,8 @@ void selectionSort(TIt begin, TIt end)
 	
 	while (begin != end)
 	{
+		// Делим массив на части, в каждой части ищем минимум параллельно
+		// потом ищем минимум из найденных минимумов.
 		auto size = std::distance(begin, end);
 		auto batchCount =  size < 100 ? 1 : std::thread::hardware_concurrency();
 		auto wholeBatchSize = size / batchCount;
